@@ -3,6 +3,8 @@ package cache;
 /**
  *
  * 描述：用数组实现的LRU（最近最少使用）算法缓存
+ * 时间复杂度：
+ * 空间复杂度：
  *
  */
 public class ArrayLRUCache {
@@ -41,7 +43,6 @@ public class ArrayLRUCache {
         return cacheUser;
     }
 
-    // 既要判断元素是否存在，又需要返回下标。分两个方法方法写的话，需要做两次循环（可读性好，性能差），如果只写一个方法（可读性差，性能好）
     private boolean checkExist(Integer id) {
         for (User item : cache) {
             if (item != null && item.getId() == id) {
