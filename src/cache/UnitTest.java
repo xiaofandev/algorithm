@@ -10,7 +10,7 @@ public class UnitTest {
     public static void testNoneExist() {
         // 初始化缓存
         int capacity = 5;
-        ArrayLRU cache = new ArrayLRU(capacity);
+        ArrayLRUCache cache = new ArrayLRUCache(capacity);
         for(int i=0; i<capacity; i++) {
             cache.get(i);
         }
@@ -38,7 +38,7 @@ public class UnitTest {
     public static void testExist() {
         // 初始化缓存
         int capacity = 5;
-        ArrayLRU cache = new ArrayLRU(capacity);
+        ArrayLRUCache cache = new ArrayLRUCache(capacity);
         for(int i=0; i<capacity; i++) {
             cache.get(i);
         }

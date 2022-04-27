@@ -5,11 +5,11 @@ package cache;
  * 描述：用数组实现的LRU（最近最少使用）算法缓存
  *
  */
-public class ArrayLRU {
+public class ArrayLRUCache {
 
     private User[] cache;// TODO 可以优化为接口实现
 
-    public ArrayLRU(int capacity) {// TODO 可以优化为自动扩容，也可支持容量上限可配置
+    public ArrayLRUCache(int capacity) {// TODO 可以优化为自动扩容，也可支持容量上限可配置
         cache = new User[capacity];
     }
 
