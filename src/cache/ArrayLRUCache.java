@@ -3,34 +3,32 @@ package cache;
 /**
  *
  * 描述：用数组实现的LRU（最近最少使用）算法缓存
- * 时间复杂度：
- * 空间复杂度：
- *
+ * 目前版本：v1.0
+ * 版本计划：
+ * 	v1.1 缓存中不命中时，只需要对不为null的元素向后移位即可，做法：加入size全局变量，以便获取数组已存元素的个数
+ *  v1.2 通过数据层接口获取需要缓存的数据，替代模拟数据
+ *  v1.3 User对象替换为接口
+ *  v1.4 优化为可扩容
+ *  v1.5 性能优化
  */
 public class ArrayLRUCache {
 
-    private User[] cache;// TODO 可以优化为接口实现
+    private User[] cache;
 
-    public ArrayLRUCache(int capacity) {// TODO 可以优化为可扩容
+    public ArrayLRUCache(int capacity) {
         cache = new User[capacity];
     }
 
-    /**
-     * 根据用户id从缓存中获取用户信息
-     * @param userId 用户id
-     * @return
-     */
     public User get(Integer userId) {
         User cacheUser = null;
         boolean isExist = checkExist(userId);// O(n)
-        if(!isExist) {// 缓存中不存在，把所有元素都向后移1位
-            // v1.0 每个元素向后移动1位
-            backwardOne(cache.length-1);// O(n)
-            cacheUser = new User(userId, userId+"");// 此处可以优化为从数据层接口获取数据 TODO
-            // v1.1 优化：只需要对不为null的元素移位即可，做法：加入size全局变量，以便获取数组已存元素的个数 TODO
-        } else {// 缓存中存在，把元素之前的元素都向后移1位
+        if(!isExist) {// 缓存不命中，把所有元素向后移1位
+        	move(cache.length-1);// O(n)
+            cacheUser = new User(userId, userId+"");
+            
+        } else {// 缓存中存在，把元素之前的元素向后移1位
         	int cacheIndex = getCacheIndex(userId);// O(n)
-            backwardOne(cacheIndex);
+        	move(cacheIndex);// O(n)
             cacheUser = cache[cacheIndex];
         }
         cache[0] = cacheUser;
@@ -61,7 +59,7 @@ public class ArrayLRUCache {
      * 从下标1开始到endIndex，每个元素向后移动1
      * @param endIndex  结束位置
      */
-    private void backwardOne(int endIndex) {
+    private void move(int endIndex) {
         for(int i=endIndex; i>0; i--) {
             cache[i] = cache[i--];
         }
