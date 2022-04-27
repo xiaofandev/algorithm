@@ -3,8 +3,8 @@ package cache;
 public class UnitTest {
 
     public static void main(String[] args) {
-        //testNoneExist();
-        //testExist();
+        testNoneExist();
+        testExist();
     }
 
     public static void testNoneExist() {
