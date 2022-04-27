@@ -11,7 +11,7 @@ public class ArrayLRUCache {
 
     private User[] cache;// TODO 可以优化为接口实现
 
-    public ArrayLRUCache(int capacity) {// TODO 可以优化为自动扩容，也可支持容量上限可配置
+    public ArrayLRUCache(int capacity) {// TODO 可以优化为可扩容
         cache = new User[capacity];
     }
 
@@ -22,25 +22,30 @@ public class ArrayLRUCache {
      */
     public User get(Integer userId) {
         User cacheUser = null;
-        boolean isExist = checkExist(userId);
+        boolean isExist = checkExist(userId);// O(n)
         if(!isExist) {// 缓存中不存在，把所有元素都向后移1位
             // v1.0 每个元素向后移动1位
-            backwardOne(cache.length-1);
+            backwardOne(cache.length-1);// O(n)
             cacheUser = new User(userId, userId+"");// 此处可以优化为从数据层接口获取数据 TODO
             // v1.1 优化：只需要对不为null的元素移位即可，做法：加入size全局变量，以便获取数组已存元素的个数 TODO
         } else {// 缓存中存在，把元素之前的元素都向后移1位
-            int cacheIndex = 0;
-            for(int i=0; i<cache.length-1; i++) {
-                if(cache[i] != null && cache[i].getId() == userId) {
-                    cacheIndex = i;
-                    break;
-                }
-            }
+        	int cacheIndex = getCacheIndex(userId);// O(n)
             backwardOne(cacheIndex);
             cacheUser = cache[cacheIndex];
         }
         cache[0] = cacheUser;
         return cacheUser;
+    }
+    
+    private int getCacheIndex(Integer userId) {
+    	int cacheIndex = 0;
+        for(int i=0; i<cache.length-1; i++) {
+            if(cache[i] != null && cache[i].getId() == userId) {
+                cacheIndex = i;
+                break;
+            }
+        }
+        return cacheIndex;
     }
 
     private boolean checkExist(Integer id) {
