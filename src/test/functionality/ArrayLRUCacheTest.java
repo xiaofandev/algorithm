@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import cache.ArrayLRUCache;
-import cache.User;
+import data.model.User;
 import test.Assert;
 
 public class ArrayLRUCacheTest {
@@ -16,8 +16,6 @@ public class ArrayLRUCacheTest {
      * output: null,[ throw runtime exception ]
      */
     private static void testMove1() throws Exception{
-    	Assert.testCaseNumber(1);
-    	
     	ArrayLRUCache instance1 = new ArrayLRUCache(3);
     	try {
     		Method move = ArrayLRUCache.class.getDeclaredMethod("move", int.class);
@@ -35,8 +33,6 @@ public class ArrayLRUCacheTest {
      * output: null,[capacity=3, cache = [User(0, "0"), User(0, "0"), null] 
      */
     private static void testMove2() throws Exception{
-    	Assert.testCaseNumber(2);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -58,8 +54,6 @@ public class ArrayLRUCacheTest {
      * output: null,[capacity=3, cache = [User(0, "0"), User(0, "0"), User(1, "1")] 
      */
     private static void testMove3() throws Exception {
-    	Assert.testCaseNumber(3);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -81,8 +75,6 @@ public class ArrayLRUCacheTest {
      * output: throw a runtime exception
      */
     private static void testGetOffsetByUserId1() throws Exception {
-    	Assert.testCaseNumber(1);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	
     	Method method = ArrayLRUCache.class.getDeclaredMethod("getOffsetByUserId", int.class);
@@ -102,8 +94,6 @@ public class ArrayLRUCacheTest {
      * output: 1
      */
     private static void testGetOffsetByUserId2() throws Exception {
-    	Assert.testCaseNumber(2);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -123,8 +113,6 @@ public class ArrayLRUCacheTest {
      * output: throw a runtime exception
      */
     private static void testGetOffsetByUserId3() throws Exception {
-    	Assert.testCaseNumber(3);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -146,8 +134,6 @@ public class ArrayLRUCacheTest {
      * output: User(1, "1"),[status: capacity=3, cache = [User(1, "1"), null, null]]
      */
     private static void testGetByUserId1() throws Exception {
-    	Assert.testCaseNumber(1);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	
     	Method method = ArrayLRUCache.class.getDeclaredMethod("getByUserId", int.class);
@@ -171,8 +157,6 @@ public class ArrayLRUCacheTest {
      * output: User(1, "1"),[status: capacity=3, cache = [User(1, "1"), User(0, "0"), null]]
      */
     private static void testGetByUserId2() throws Exception {
-    	Assert.testCaseNumber(2);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -196,8 +180,6 @@ public class ArrayLRUCacheTest {
      * output: User(3, "3"),[status: capacity=3, cache = [User(3, "3"), User(0, "0"), User(1, "1")]]
      */
     private static void testGetByUserId3() throws Exception {
-    	Assert.testCaseNumber(3);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -222,8 +204,6 @@ public class ArrayLRUCacheTest {
      * output: User(1, "1"),[status: capacity=3, cache = [User(1, "1"), User(0, "0"), null]]
      */
     private static void testGetByUserId4() throws Exception {
-    	Assert.testCaseNumber(4);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);
@@ -248,8 +228,6 @@ public class ArrayLRUCacheTest {
      * output: User(1, "1"),[status: capacity=3, cache = [User(1, "1"), User(0, "0"), User(2, "2")]]
      */
     private static void testGetByUserId5() throws Exception {
-    	Assert.testCaseNumber(5);
-    	
     	ArrayLRUCache instance = new ArrayLRUCache(3);
     	Field field = ArrayLRUCache.class.getDeclaredField("cache");
     	field.setAccessible(true);

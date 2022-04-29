@@ -1,7 +1,8 @@
 package cache;
 
-import cache.exception.DataEmptyException;
-import cache.exception.DataNotFoundException;
+import data.model.User;
+import exception.DataEmptyException;
+import exception.DataNotFoundException;
 
 public class ArrayLRUCache {
 
