@@ -1,9 +1,6 @@
 ## Test
 ## Code of conduct
 
-### Symbol
-- '#' means test case
-    	
 ### Comment format
 - decription: some description
 - init status: some description
