@@ -1,4 +1,4 @@
-package cache;
+package data.model;
 
 import java.util.Objects;
 
