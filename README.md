@@ -1,7 +1,12 @@
-# algorithm
+## Test
+## Code of conduct
 
-### 版本计划:
-- v1.0 缓存对象抽象
-- v1.1 实现方式抽象
-- v1.2 数据访问层抽象
-- v1.3 细节优化
+### Symbol
+- '#' means test case
+    	
+### Comment format
+- decription: some description
+- init status: some description
+- input: parameter_name=parameter_value,...
+- output: null or other,[' some description about changed status or log ']'
+
