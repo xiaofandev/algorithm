@@ -68,36 +68,4 @@ public class Assert {
 		System.out.println(FAILURE +"["+ msg + "]");
 	}
 	
-	public static void testCaseNumber(int number) {
-		System.out.print("#"+number);
-	}
-	
-	public static void printArray(Object[] array) {
-		for(Object obj : array) {
-			System.out.print(obj);
-		}
-		System.out.println();
-	}
-	
-// unit test
-	public static void main(String[] args) {
-		testEqualObjectArray();
-	}
-	
-	public static void testEqualObject() {
-		// TODO
-	}
-	
-	public static void testEqualObjectArray() {
-		// #1
-		// decription: not null
-		// init status: 
-		// input: source=["0", "1", null],expect=["0", "1", null]
-		// output: null,[print log 'test success!']
-		String[] source = new String[]{"0", "1", null};
-		String[] expect = new String[]{"0", "1", null};
-		Assert.equal(source, expect);
-
-	}
-	
 }
