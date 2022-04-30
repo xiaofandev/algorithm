@@ -10,7 +10,7 @@ import test.Assert;
 public class ArrayLRUCacheTest {
 	
 	/**
-     * description: test exception
+     * description: not hitted,
      * init status: capacity=3, cache = [null, null,null]
      * input: index=3
      * output: null,[ throw runtime exception ]
