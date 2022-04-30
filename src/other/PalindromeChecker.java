@@ -31,7 +31,7 @@ public class PalindromeChecker {
 		Node pre = null;
 		Node next = null;
 		
-		while(fast != null && fast.next != null) {// 偶
+		while(fast.next != null && fast.next.next != null) {// 偶
 			// 需求：slow节点的next指向前一个节点，slow指针改变为下一个节点
 			fast = fast.next.next;
 			
@@ -42,8 +42,13 @@ public class PalindromeChecker {
 			
 		}
 		// 奇
-		if(fast != null) {
+		if(fast.next == null) {
 			slow = slow.next;
+		} else {
+			next = slow.next;
+			slow.next = pre;
+			pre = slow;
+			slow = next;
 		}
 		while(slow != null) {
 			if(slow.ch != pre.ch) {
