@@ -31,7 +31,7 @@ public class PalindromeChecker {
 		Node pre = null;
 		Node next = null;
 		
-		while(fast.next != null && fast.next.next != null) {// 偶
+		while(fast != null && fast.next != null) {// 偶
 			// 需求：slow节点的next指向前一个节点，slow指针改变为下一个节点
 			fast = fast.next.next;
 			
@@ -42,13 +42,8 @@ public class PalindromeChecker {
 			
 		}
 		// 奇
-		if(fast.next == null) {
+		if(fast != null) {
 			slow = slow.next;
-		} else {
-			next = slow.next;
-			slow.next = pre;
-			pre = slow;
-			slow = next;
 		}
 		while(slow != null) {
 			if(slow.ch != pre.ch) {
@@ -66,29 +61,6 @@ public class PalindromeChecker {
 		private Node(char ch) {
 			this.ch = ch;
 		}
-	}
-	
-	public static void main(String[] args) {
-		// 奇数，非回文
-		String str = "qwe";
-		PalindromeChecker checker = new PalindromeChecker(str);
-		System.out.println(str+":"+checker.check());
-		
-		// 奇数，回文
-		str = "qwq";
-		checker = new PalindromeChecker(str);
-		System.out.println(str+":"+checker.check());
-		
-		// 偶数，非回文
-		str = "aabb";
-		checker = new PalindromeChecker(str);
-		System.out.println(str+":"+checker.check());
-		
-		// 偶数，回文
-		str = "abba";
-		checker = new PalindromeChecker(str);
-		System.out.println(str+":"+checker.check());
-		
 	}
 	
 }
