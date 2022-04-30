@@ -5,6 +5,14 @@ public class Assert {
 	private static final String SUCCESS = "test success!"; 
 	private static final String FAILURE = "test failure!";
 	
+	public static void equal(boolean source, boolean expect) {
+		if(source == expect) {
+			success();
+		} else {
+			failure();
+		}
+	}
+	
 	public static void equal(Object source, Object expect) {
 		if(source == null || expect == null) {
 			failure("source or expect parameter cannot be null");
