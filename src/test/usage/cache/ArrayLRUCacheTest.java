@@ -1,10 +1,10 @@
-package test.functionality;
+package test.usage.cache;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import test.Assert;
-import usage.ArrayLRUCache;
+import usage.cache.ArrayLRUCache;
 import usage.model.User;
 
 public class ArrayLRUCacheTest {

@@ -1,4 +1,4 @@
-package test.functionality;
+package test;
 
 public class AssertTest {
 
