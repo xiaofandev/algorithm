@@ -1,5 +1,7 @@
 package test;
 
+import other.LinkedList;
+
 public class Assert {
 
 	private static final String SUCCESS = "test success!"; 
@@ -57,6 +59,20 @@ public class Assert {
 	            }
 	    		success();
 	    	}
+		}
+	}
+	
+	public static void equal(LinkedList source, LinkedList expect) {
+		if(source == null || expect == null) {
+			failure();
+		} else if(source.getLength() != expect.getLength()){
+			failure();
+		} else {
+			if(source.equals(expect)) {
+				success();
+			} else {
+				failure();
+			}
 		}
 	}
 	
