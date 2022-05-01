@@ -1,7 +1,7 @@
 package test.functionality;
 
-import other.PalindromeChecker;
 import test.Assert;
+import usage.PalindromeChecker;
 
 public class PalindromeCheckerTest {
 

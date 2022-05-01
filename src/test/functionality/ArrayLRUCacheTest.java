@@ -3,9 +3,9 @@ package test.functionality;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import cache.ArrayLRUCache;
-import data.model.User;
 import test.Assert;
+import usage.ArrayLRUCache;
+import usage.model.User;
 
 public class ArrayLRUCacheTest {
 	

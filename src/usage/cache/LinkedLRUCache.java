@@ -1,6 +1,6 @@
-package cache;
+package usage.cache;
 
-import data.model.User;
+import usage.model.User;
 
 public class LinkedLRUCache {
 

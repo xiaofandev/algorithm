@@ -1,4 +1,4 @@
-package data.model;
+package usage.model;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package exception;
+package usage.exception;
 
 public class DataNotFoundException extends RuntimeException {
 

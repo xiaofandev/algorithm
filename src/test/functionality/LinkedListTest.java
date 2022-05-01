@@ -1,6 +1,6 @@
 package test.functionality;
 
-import other.LinkedList;
+import util.LinkedList;
 
 public class LinkedListTest {
 

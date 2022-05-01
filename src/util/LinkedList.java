@@ -1,4 +1,4 @@
-package other;
+package util;
 
 /**
  * Notice: capacity is not limited

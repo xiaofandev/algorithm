@@ -1,8 +1,8 @@
 package test.functionality;
 
-import cache.LinkedLRUCache;
-import data.model.User;
 import test.Assert;
+import usage.LinkedLRUCache;
+import usage.model.User;
 
 public class LinkedLRUCacheTest {
 	

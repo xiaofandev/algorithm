@@ -1,6 +1,6 @@
 package test;
 
-import other.LinkedList;
+import util.LinkedList;
 
 public class Assert {
 
@@ -62,7 +62,7 @@ public class Assert {
 		}
 	}
 	
-	public static void equal(LinkedList source, LinkedList expect) {
+	public static void equal(LinkedList<?> source, LinkedList<?> expect) {
 		if(source == null || expect == null) {
 			failure();
 		} else if(source.getLength() != expect.getLength()){
