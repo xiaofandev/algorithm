@@ -1,9 +1,8 @@
-## Test
-## Code of conduct
+## 测试
+### 代码规范
 
-### Comment format
-- decription: some description
-- init status: some description
+### 注释格式
+- description: some description
 - input: parameter_name=parameter_value,...
 - output: null or other,[' some description about changed status or log ']'
 

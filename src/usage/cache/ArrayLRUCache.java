@@ -1,7 +1,5 @@
 package usage.cache;
 
-import usage.exception.DataEmptyException;
-import usage.exception.DataNotFoundException;
 import usage.model.User;
 
 public class ArrayLRUCache {

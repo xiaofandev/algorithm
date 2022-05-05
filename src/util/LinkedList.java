@@ -1,46 +1,157 @@
 package util;
 
-public class LinkedList<T> {
+public class LinkedList<E> {
 
-	private Node head;
-	private int length = 0;
-	private int capacity = 0;
+	private Node<E> first;
+	private Node<E> last;
+	private int size = 0;
 	
-	public LinkedList(int capacity) {
-		this.capacity = capacity;
+	private void linkFirst(E e) {
+		final Node<E> h = first;
+		final Node<E> newNode = new Node<>(null, e, h);
+		first = newNode;
+		if(h == null) {
+			last = newNode;
+		} else {
+			h.prev = newNode;
+		}
+		size++;
 	}
 	
-	public LinkedList<T> addToHead(T data) {
-		if(data == null) {
-			throw new RuntimeException("patameter data cannot be null");
+	private void linkLast(E e) {
+		final Node<E> t = last;
+		final Node<E> newNode = new Node<>(t, e, null);
+		last = newNode;
+		if (t == null) {
+			first = newNode;
+		} else {
+			t.next = newNode;
 		}
-		if(this.capacity == this.length) {
-			throw new RuntimeException("capacity is not enough");
+		size++;
+	}
+	
+	private void linkBefore(E e, Node<E> source) {
+		// assert source is not null
+		Node<E> prev = source.prev;
+		final Node<E> newNode = new Node<>(source.prev, e, source.next);
+		source.prev = newNode;
+		if (prev == null) {
+			first = newNode;
+		} else {
+			prev.next = newNode;
+		}
+		size++;
+	}
+	
+	private void unlinkFirst() {
+		final Node<E> f = first;
+		final Node<E> next = f.next;
+		f.element = null;
+		f.next = null;
+		first = next;
+		if(next == null) {
+			last = null;
+		} else {
+			next.prev = null;
+		}
+		size--;
+	}
+	
+	private void unlinkLast() {
+		final Node<E> l = last;
+		final Node<E> prev = l.prev;
+		l.element = null;
+		l.prev = null;
+		last = prev;
+		if(prev == null) {
+			first = null;
+		} else {
+			prev.next = null;
+		}
+		size--;
+	}
+	
+	private void unlink(Node<E> node) {
+		final Node<E> prev = node.prev;
+		final Node<E> next = node.next;
+		
+		node.element = null;
+		
+		if(prev == null) {
+			first = next;
+		} else {
+			prev.next = next;
+			node.prev = null;
 		}
 		
-		Node node = new Node(data);
-		node.next = this.head;
-		this.head = node;
-		
-		this.length++;
-		return this;
+		if(next == null) {
+			last = prev;
+		} else {
+			next.prev = prev;
+			node.next = null;
+		}
+		size--;
 	}
 	
-	private class Node {
-		private T data;
-		private Node next;
-		public Node(T data) {
-			this.data = data;
+	private E getFirst() {
+		final Node<E> f = first;
+		if(f == null) {
+			throw new NoSuchElementException();
+		}
+		return f.element;
+	}
+	
+	private E getLast() {
+		final Node<E> l = last;
+		if(l == null) {
+			throw new NoSuchElementException();
+		}
+		return l.element;
+	}
+	
+	public void addFirst(E e) {
+		linkFirst(e);
+	}
+	
+	public void addLast(E e) {
+		linkLast(e);
+	}
+	
+	public void removeFirst() {
+		if(first == null) {
+			throw new NoSuchElementException();
+		}
+		unlinkFirst();
+	}
+	
+	public void removeLast() {
+		if(last == null) {
+			throw new NoSuchElementException();
+		}
+		unlinkLast();
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public void push(E e) {
+		addLast(e);
+	}
+	
+	public void pop(E e) {
+		removeLast();
+	}
+	
+	private static class Node<E> {
+		Node<E> prev;
+		E element;
+		Node<E> next;
+		public Node(Node<E> prev,E element, Node<E> next) {
+			this.prev = prev;
+			this.element = element;
+			this.next = next;
 		}
 	}
-
-	// only for unit test
-	public void print() {
-		Node node = this.head;
-		while(node != null) {
-			System.out.print(node.data);
-			node = node.next;
-		}
-		System.out.println();
-	}
+	
 }

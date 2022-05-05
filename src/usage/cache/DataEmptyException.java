@@ -1,4 +1,4 @@
-package usage.exception;
+package usage.cache;
 
 public class DataEmptyException extends RuntimeException {
 

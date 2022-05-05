@@ -14,14 +14,20 @@ public class Assert {
 	}
 	
 	public static void equal(Object source, Object expect) {
-		if(source == null || expect == null) {
-			failure("source or expect parameter cannot be null");
-		}
-		if(source.equals(expect)) {
+		if(source == expect) {
 			success();
 		} else {
-			failure();
+			if(source == null || expect == null) {
+				failure();
+			} else {
+				if(source.equals(expect)) {
+					success();
+				} else {
+					failure();
+				}
+			}
 		}
+		
 	}
 	
 	public static void equal(Object[] source, Object[] expect) {
