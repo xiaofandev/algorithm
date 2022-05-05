@@ -57,8 +57,9 @@ public class LinkedList<E> {
 		size--;
 	}
 	
-	private void unlinkLast() {
+	private E unlinkLast() {
 		final Node<E> l = last;
+		final E element = last.element;
 		final Node<E> prev = l.prev;
 		l.element = null;
 		l.prev = null;
@@ -69,6 +70,7 @@ public class LinkedList<E> {
 			prev.next = null;
 		}
 		size--;
+		return element;
 	}
 	
 	private void unlink(Node<E> node) {
@@ -124,11 +126,11 @@ public class LinkedList<E> {
 		unlinkFirst();
 	}
 	
-	public void removeLast() {
+	public E removeLast() {
 		if(last == null) {
 			throw new NoSuchElementException();
 		}
-		unlinkLast();
+		return unlinkLast();
 	}
 	
 	public int getSize() {
@@ -139,8 +141,8 @@ public class LinkedList<E> {
 		addLast(e);
 	}
 	
-	public void pop(E e) {
-		removeLast();
+	public E pop() {
+		return removeLast();
 	}
 	
 	private static class Node<E> {

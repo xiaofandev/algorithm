@@ -1,6 +1,6 @@
 package util;
 
-public class ArrayStack {
+public class ArrayStack implements Stack<String> {
 
 	private String[] array;
 	private int capacity;
@@ -50,5 +50,5 @@ public class ArrayStack {
 		}
 		return item;
 	}
-	
+
 }
