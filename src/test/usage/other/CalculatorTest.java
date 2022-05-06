@@ -9,11 +9,12 @@ public class CalculatorTest {
 		testCalculate1();
 		testCalculate2();
 		testCalculate3();
+		testCalculate4();
 	}
 	
 	public static void testCalculate1() {
 		Calculator calculator = new Calculator();
-		int source = calculator.calculate("1 + 2 * 3 - 4");
+		int source = calculator.calculate("1 + 2");
 		Assert.equal(source, 3);
 	}
 	
@@ -25,7 +26,13 @@ public class CalculatorTest {
 	
 	public static void testCalculate3() {
 		Calculator calculator = new Calculator();
-		int source = calculator.calculate("1 + 4 * 3 - 1 + 16 / 4");
-		Assert.equal(source, 16);
+		int source = calculator.calculate("1 + 2 * 3 - 4");
+		Assert.equal(source, 3);
+	}
+	
+	public static void testCalculate4() {
+		Calculator calculator = new Calculator();
+		int source = calculator.calculate("1 + 2 * 3 - 4 + 16 / 4");
+		Assert.equal(source, 7);
 	}
 }
