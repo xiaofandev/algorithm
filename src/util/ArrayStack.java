@@ -20,12 +20,16 @@ public class ArrayStack implements Stack<String> {
 		size--;
 	}
 	
-	public int getLastIndex() {
+	private int getLastIndex() {
 		return size-1;
 	}
 	
 	public int getSize() {
 		return size;
+	}
+	
+	public String getLast() {
+		return array[getLastIndex()];
 	}
 	
 	public boolean push(String item) {
