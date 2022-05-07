@@ -38,18 +38,18 @@ public class Calculator {
 		String operator = operatorStack.pop();
 		int result = 0;
 		switch(operator) {
-		case "+":
-			result = Integer.valueOf(operateNum) + Integer.valueOf(operatedNum);
-			break;
-		case "-":
-			result = Integer.valueOf(operateNum) - Integer.valueOf(operatedNum);
-			break;
-		case "*":
-			result = Integer.valueOf(operateNum) * Integer.valueOf(operatedNum);
-			break;
-		case "/":
-			result = Integer.valueOf(operateNum) / Integer.valueOf(operatedNum);
-			break;
+			case "+":
+				result = Integer.valueOf(operateNum) + Integer.valueOf(operatedNum);
+				break;
+			case "-":
+				result = Integer.valueOf(operateNum) - Integer.valueOf(operatedNum);
+				break;
+			case "*":
+				result = Integer.valueOf(operateNum) * Integer.valueOf(operatedNum);
+				break;
+			case "/":
+				result = Integer.valueOf(operateNum) / Integer.valueOf(operatedNum);
+				break;
 		}
 		variableStack.push(String.valueOf(result));
 	}
