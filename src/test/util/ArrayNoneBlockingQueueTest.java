@@ -1,11 +1,11 @@
 package test.util;
 
 import test.Assert;
-import util.NoneBlockingArrayQueue;
+import util.ArrayNoneBlockingQueue;
 import util.QueueIsEmptyException;
 import util.QueueIsFullException;
 
-public class NoneBlockingArrayQueueTest {
+public class ArrayNoneBlockingQueueTest {
 
 	public static void main(String[] args) {
 		testEnqueue();
@@ -19,7 +19,7 @@ public class NoneBlockingArrayQueueTest {
 	 * output: throw QueueIsFullException runtime exception
 	 */
 	public static void testEnqueue() {
-		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
+		ArrayNoneBlockingQueue queue = new ArrayNoneBlockingQueue(2);
 		queue.enqueue("aa");
 		queue.enqueue("bb");
 		try {
@@ -36,7 +36,7 @@ public class NoneBlockingArrayQueueTest {
 	 * output: throw QueueIsEmptyException runtime exception
 	 */
 	public static void testDequeue() {
-		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
+		ArrayNoneBlockingQueue queue = new ArrayNoneBlockingQueue(2);
 		try {
 			queue.dequeue();
 			Assert.failure();
@@ -51,7 +51,7 @@ public class NoneBlockingArrayQueueTest {
 	 * output: "aa"
 	 */
 	public static void testDequeue2() {
-		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
+		ArrayNoneBlockingQueue queue = new ArrayNoneBlockingQueue(2);
 		queue.enqueue("aa");
 		queue.enqueue("bb");
 		String source = queue.dequeue();

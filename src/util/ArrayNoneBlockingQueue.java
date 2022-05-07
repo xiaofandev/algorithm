@@ -1,13 +1,13 @@
 package util;
 
-public class NoneBlockingArrayQueue {
+public class ArrayNoneBlockingQueue {
 
 	private String[] array;
 	private int capacity;
 	private int head = 0;
 	private int tail = 0;
 	
-	public NoneBlockingArrayQueue(int capacity) {
+	public ArrayNoneBlockingQueue(int capacity) {
 		this.capacity = capacity;
 		array = new String[capacity];
 	}
