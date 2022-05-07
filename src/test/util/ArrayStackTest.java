@@ -6,16 +6,66 @@ import util.ArrayStack;
 public class ArrayStackTest {
 
 	public static void main(String[] args) {
-		test();
+		testPush();
+		testPop();
+		testGetSize();
+		testGetLast();
 	}
 	
-	public static void test() {
+	/**
+	 * description: stack is full
+	 * init param: capacity = 1
+	 * input: "aa", "bb"
+	 * output: false
+	 */
+	public static void testPush() {
 		ArrayStack stack = new ArrayStack(1);
-		Assert.equal(stack.push("aa"), true);
+		stack.push("aa");
 		Assert.equal(stack.push("bb"), false);
+	}
+	
+	/**
+	 * description: stack is not empty, stack is empty
+	 * init param: capacity = 1
+	 * input: "aa"
+	 * output: "aa", null
+	 */
+	public static void testPop() {
+		ArrayStack stack = new ArrayStack(1);
+		stack.push("aa");
 		Assert.equal(stack.pop(), "aa");
 		Assert.equal(stack.pop(), null);
-		Assert.equal(stack.getSize(), 0);
+	}
+	
+	/**
+	 * description: test getSize after push and pop
+	 * init param: capacity = 2
+	 * input: 
+	 * output: 
+	 */
+	public static void testGetSize() {
+		ArrayStack stack = new ArrayStack(2);
+		stack.push("aa");
+		stack.push("bb");
+		Assert.equal(stack.getSize(), 2);
+		stack.pop();
+		Assert.equal(stack.getSize(), 1);
+	}
+	
+	/**
+	 * description: stack is empty, stack is not emty
+	 * init param: capacity = 0
+	 * input: 
+	 * output: 
+	 */
+	public static void testGetLast() {
+		ArrayStack stack = new ArrayStack(2);
+		Assert.equal(stack.getLast(), null);
+		stack.push("aa");
+		stack.push("bb");
+		Assert.equal(stack.getLast(), "bb");
+		stack.pop();
+		Assert.equal(stack.getLast(), "aa");
 	}
 	
 }

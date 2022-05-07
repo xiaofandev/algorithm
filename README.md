@@ -1,8 +1,9 @@
-## 测试
-### 代码规范
+## Unit Test
+### Code of conduct
 
-### 注释格式
+### Annotation format
 - description: some description
+- init param: constructer parameter,...
 - input: parameter_name=parameter_value,...
 - output: null or other,[' some description about changed status or log ']'
 

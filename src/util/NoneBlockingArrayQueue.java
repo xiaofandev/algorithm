@@ -1,10 +1,5 @@
 package util;
 
-/**
- * 
- * 非阻塞数组实现队列
- *
- */
 public class NoneBlockingArrayQueue {
 
 	private String[] array;
@@ -17,15 +12,18 @@ public class NoneBlockingArrayQueue {
 		array = new String[capacity];
 	}
 	
-	// 入栈
-	public void enqueue(String val) {
-		// tail指针已到尾部
+	/**
+	 * Insert element to the end of the queue
+	 * @param e The inserted element
+	 */
+	public void enqueue(String e) {
+		// tail pointer has moved to the boundary of the queue
 		if(tail == capacity) {
-			// 队列已满
+			// queue is full
 			if(head == 0) {
 				throw new QueueIsFullException();
 			} else {
-				// 移动所有元素到数组开始位置
+				// move all elements to the start position
 				for(int i=head; i<tail; i++) {
 					array[i-head] = array[i];
 				}
@@ -33,12 +31,15 @@ public class NoneBlockingArrayQueue {
 				head = 0;
 			}
 		} else {
-			array[tail] = val;
+			array[tail] = e;
 			tail++;
 		}
 	}
 	
-	// 出栈
+	/**
+	 * Remove the element which at start position of the queue
+	 * @return The removed element
+	 */
 	public String dequeue() {
 		String result;
 		if(head == tail) {

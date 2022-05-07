@@ -8,15 +8,17 @@ import util.QueueIsFullException;
 public class NoneBlockingArrayQueueTest {
 
 	public static void main(String[] args) {
-		test1();
-		test2();
-		test3();
+		testEnqueue();
+		testDequeue();
+		testDequeue2();
 	}
 	
 	/**
-	 * 队列已满，入队操作
+	 * description: test enqueue operation in normal and in condition of the queue is full
+	 * input: "aa", "bb", "cc"
+	 * output: throw QueueIsFullException runtime exception
 	 */
-	public static void test1() {
+	public static void testEnqueue() {
 		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
 		queue.enqueue("aa");
 		queue.enqueue("bb");
@@ -29,9 +31,11 @@ public class NoneBlockingArrayQueueTest {
 	}
 	
 	/**
-	 * 队列为空，出队操作
+	 * description: test dequeue operation in condition of the queue is empty
+	 * input: null
+	 * output: throw QueueIsEmptyException runtime exception
 	 */
-	public static void test2() {
+	public static void testDequeue() {
 		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
 		try {
 			queue.dequeue();
@@ -41,7 +45,12 @@ public class NoneBlockingArrayQueueTest {
 		}
 	}
 	
-	public static void test3() {
+	/**
+	 * description: test enqueue and dequeue operation in normal
+	 * input: "aa", "bb"
+	 * output: "aa"
+	 */
+	public static void testDequeue2() {
 		NoneBlockingArrayQueue queue = new NoneBlockingArrayQueue(2);
 		queue.enqueue("aa");
 		queue.enqueue("bb");

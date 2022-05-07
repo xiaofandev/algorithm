@@ -12,16 +12,25 @@ public class ArrayStack implements Stack<String> {
 		size = 0;
 	}
 	
-	private void incrementSize() {
+	public boolean push(String item) {
+		if(size == capacity) {
+			return false;
+		}
+		array[size] = item;
 		size++;
+		return true;
 	}
 	
-	private void decrementSize() {
-		size--;
-	}
-	
-	private int getLastIndex() {
-		return size-1;
+	public String pop() {
+		final String item;
+		if(size == 0) {
+			item = null;
+		} else {
+			item = array[size-1]; 
+			array[size-1] = null; // help gc
+			size--;
+		}
+		return item;
 	}
 	
 	public int getSize() {
@@ -29,30 +38,11 @@ public class ArrayStack implements Stack<String> {
 	}
 	
 	public String getLast() {
-		return array[getLastIndex()];
-	}
-	
-	public boolean push(String item) {
-		if(getSize() == capacity) {
-			return false;
-		}
-		int lastIndex = getLastIndex();
-		array[lastIndex+1] = item;
-		incrementSize();
-		return true;
-	}
-	
-	public String pop() {
-		final String item;
-		if(getSize() == 0) {
-			item = null;
+		if(size == 0) {
+			return null;
 		} else {
-			int lastIndex = getLastIndex();
-			item = array[lastIndex]; 
-			array[lastIndex] = null; // help gc
-			decrementSize();
+			return array[size-1];
 		}
-		return item;
 	}
 
 }
