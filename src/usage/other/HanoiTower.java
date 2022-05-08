@@ -22,6 +22,7 @@ public class HanoiTower {
 	 * how many steps need to move all hanois from left to middle
 	 */
 	public static int fn(int n) {
+		// assert n > 0
 		if(n == 1) {
 			return 1;
 		} else {
