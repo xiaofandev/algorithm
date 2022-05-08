@@ -4,8 +4,8 @@ import util.ArrayStack;
 
 public class Calculator {
 
-	private ArrayStack variableStack = new ArrayStack(20);
-	private ArrayStack operatorStack = new ArrayStack(20);
+	private ArrayStack<String> variableStack = new ArrayStack<>(20);
+	private ArrayStack<String> operatorStack = new ArrayStack<>(20);
 	
 	/**
 	 * 判断操作符优先级

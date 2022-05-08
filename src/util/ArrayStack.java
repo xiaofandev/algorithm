@@ -1,18 +1,18 @@
 package util;
 
-public class ArrayStack implements Stack<String> {
+public class ArrayStack<E> implements Stack<E> {
 
-	private String[] array;
+	private Object[] array;
 	private int capacity;
 	private int size;
 	
 	public ArrayStack(int capacity) {
-		array = new String[capacity];
+		array = new Object[capacity];
 		this.capacity = capacity;
 		size = 0;
 	}
 	
-	public boolean push(String item) {
+	public boolean push(E item) {
 		if(size == capacity) {
 			return false;
 		}
@@ -21,12 +21,13 @@ public class ArrayStack implements Stack<String> {
 		return true;
 	}
 	
-	public String pop() {
-		final String item;
+	@SuppressWarnings("unchecked")
+	public E pop() {
+		final E item;
 		if(size == 0) {
 			item = null;
 		} else {
-			item = array[size-1]; 
+			item = (E) array[size-1]; 
 			array[size-1] = null; // help gc
 			size--;
 		}
@@ -37,11 +38,12 @@ public class ArrayStack implements Stack<String> {
 		return size;
 	}
 	
-	public String getLast() {
+	@SuppressWarnings("unchecked")
+	public E getLast() {
 		if(size == 0) {
 			return null;
 		} else {
-			return array[size-1];
+			return (E) array[size-1];
 		}
 	}
 

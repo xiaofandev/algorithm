@@ -10,7 +10,7 @@ import util.ArrayStack;
  */
 public class BracketsChecker {
 
-	private ArrayStack leftBracketStack = new ArrayStack(3);
+	private final ArrayStack<String> leftBracketStack = new ArrayStack<>(3);
 	
 	public boolean check(String expression) {
 		String[] brackets = expression.split(" ");

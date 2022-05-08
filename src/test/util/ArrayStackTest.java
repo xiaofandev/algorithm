@@ -19,7 +19,7 @@ public class ArrayStackTest {
 	 * output: false
 	 */
 	public static void testPush() {
-		ArrayStack stack = new ArrayStack(1);
+		ArrayStack<String> stack = new ArrayStack<>(1);
 		stack.push("aa");
 		Assert.equal(stack.push("bb"), false);
 	}
@@ -31,7 +31,7 @@ public class ArrayStackTest {
 	 * output: "aa", null
 	 */
 	public static void testPop() {
-		ArrayStack stack = new ArrayStack(1);
+		ArrayStack<String> stack = new ArrayStack<>(1);
 		stack.push("aa");
 		Assert.equal(stack.pop(), "aa");
 		Assert.equal(stack.pop(), null);
@@ -44,7 +44,7 @@ public class ArrayStackTest {
 	 * output: 
 	 */
 	public static void testGetSize() {
-		ArrayStack stack = new ArrayStack(2);
+		ArrayStack<String> stack = new ArrayStack<>(2);
 		stack.push("aa");
 		stack.push("bb");
 		Assert.equal(stack.getSize(), 2);
@@ -59,7 +59,7 @@ public class ArrayStackTest {
 	 * output: 
 	 */
 	public static void testGetLast() {
-		ArrayStack stack = new ArrayStack(2);
+		ArrayStack<String> stack = new ArrayStack<>(2);
 		Assert.equal(stack.getLast(), null);
 		stack.push("aa");
 		stack.push("bb");
