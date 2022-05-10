@@ -14,11 +14,13 @@ public class BubbleSort {
 					isFinish = false;
 				}
 			}
+			//bubbleCount++;
 			if(isFinish) {
 				//System.out.println("冒泡次数" + bubbleCount);
 				break;
 			}
-			//bubbleCount++;
+			
+			
 		}
 		return items;
 	}
