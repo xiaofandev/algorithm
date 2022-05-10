@@ -21,10 +21,7 @@ public class ArrayLRUCache {
      * 
      */
     private void move(int endOffset) {
-    	if(endOffset > capacity-1) {
-    		throw new IndexOutOfBoundsException(endOffset);
-    	}
-    	
+    	// assert endOffset <= capacity-1
         for(int i=endOffset; i>0; i--) {
         	cache[i] = cache[i-1];
         }
