@@ -30,19 +30,6 @@ public class LinkedList<E> {
 		size++;
 	}
 	
-	private void linkBefore(E e, Node<E> source) {
-		// assert source is not null
-		Node<E> prev = source.prev;
-		final Node<E> newNode = new Node<>(source.prev, e, source.next);
-		source.prev = newNode;
-		if (prev == null) {
-			first = newNode;
-		} else {
-			prev.next = newNode;
-		}
-		size++;
-	}
-	
 	private E unlinkFirst() {
 		final Node<E> f = first;
 		final E element = f.element;
@@ -73,44 +60,6 @@ public class LinkedList<E> {
 		}
 		size--;
 		return element;
-	}
-	
-	private void unlink(Node<E> node) {
-		final Node<E> prev = node.prev;
-		final Node<E> next = node.next;
-		
-		node.element = null;
-		
-		if(prev == null) {
-			first = next;
-		} else {
-			prev.next = next;
-			node.prev = null;
-		}
-		
-		if(next == null) {
-			last = prev;
-		} else {
-			next.prev = prev;
-			node.next = null;
-		}
-		size--;
-	}
-	
-	private E getFirst() {
-		final Node<E> f = first;
-		if(f == null) {
-			throw new NoSuchElementException();
-		}
-		return f.element;
-	}
-	
-	private E getLast() {
-		final Node<E> l = last;
-		if(l == null) {
-			throw new NoSuchElementException();
-		}
-		return l.element;
 	}
 	
 	public void addFirst(E e) {

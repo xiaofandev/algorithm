@@ -36,6 +36,7 @@ public class LinkedQueue<E> {
 	}
 	
 	private static class Node<E> {
+		@SuppressWarnings("unused")
 		Node<E> prev;
 		E element;
 		Node<E> next;
