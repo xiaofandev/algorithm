@@ -19,8 +19,6 @@ public class BubbleSort {
 				//System.out.println("冒泡次数" + bubbleCount);
 				break;
 			}
-			
-			
 		}
 		return items;
 	}
