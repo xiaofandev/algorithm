@@ -11,8 +11,8 @@ public class SelectionSort {
 			
 			// select min value element
 			int minOffset = i;
-			for(int j=a.length-1; j>=i; j--) {
-				if(a[j] < a[i]) {
+			for(int j=i; j<a.length; j++) {
+				if(a[j] < a[minOffset]) {
 					minOffset = j;
 				}
 			}
