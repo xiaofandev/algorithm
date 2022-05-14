@@ -4,7 +4,7 @@ package usage.sort;
  *	Every time select a min value element from none select area, 
  *	and add the element to the end of the selected area.  
  */
-public class SelectionSort {
+public class ArraySelectionSort {
 
 	public static Integer[] sort(Integer[] a) {
 		for(int i=0; i<a.length; i++) {

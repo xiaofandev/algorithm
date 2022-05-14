@@ -1,6 +1,6 @@
 package usage.sort;
 
-public class BubbleSort {
+public class ArrayBubbleSort {
 	
 	public static Integer[] sort(Integer[] items) {
 		//int bubbleCount = 0;

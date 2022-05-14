@@ -1,6 +1,6 @@
 package usage.sort;
 
-public class InsertSort {
+public class ArrayInsertSort {
 
 	public static Integer[] sort(Integer[] items) {
 		for(int i=1; i<items.length; i++) {
