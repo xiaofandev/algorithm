@@ -10,11 +10,11 @@ public class InsertSortTest {
 	}
 	
 	public static void testSort() {
-		Integer[] items2 = new Integer[] {1, 2, 4, 6, 3};
-		Assert.equal(InsertSort.sort(items2), new Integer[] {1, 2, 3, 4, 6});
+		Integer[] data1 = new Integer[] {3, 1, 5, 4, 2};
+		Assert.equal(InsertSort.sort(data1), new Integer[] {1,2,3,4,5});
 		
-		Integer[] items = new Integer[] {3, 2, 6, 2, 7, 1};
-		Assert.equal(InsertSort.sort(items), new Integer[] {1, 2, 2, 3, 6, 7});
+		Integer[] data2 = new Integer[] {23, 15, 2, 7, 21};
+		Assert.equal(InsertSort.sort(data2), new Integer[] {2,7,15,21,23});
 		
 	}
 
