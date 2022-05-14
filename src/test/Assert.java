@@ -43,25 +43,30 @@ public class Assert {
     			// object, objct->
     			//                equal=true->success
     			//                equal=false->failure
+	    		boolean success = true;
 	    		for(int i=0; i<source.length-1; i++) {
 	    			if(source[i] == null) {
 	    				if(expect[i] != null) {
-	    					failure();
+	    					success = false;
 	    					break;
 	    				}
 	    			} else {
 	    				if(expect[i] == null) {
-	    					failure();
+	    					success = false;
 	    					break;
 	    				} else {
 	    					if(!source[i].equals(expect[i])) {
-	    						failure();
+	    						success = false;
 	    						break;
 	    					}
 	    				}
 	    			}
 	            }
-	    		success();
+	    		if(success) {
+	    			success();
+	    		} else {
+	    			failure();
+	    		}
 	    	}
 		}
 	}
