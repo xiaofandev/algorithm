@@ -97,8 +97,8 @@ public class LinkedList<E> {
 	}
 	
 	// below is search method
-	public Node<E> get(int index) {
-		return node(index);
+	public E get(int index) {
+		return node(index).element;
 	}
 	
 	private Node<E> node(int index) {
