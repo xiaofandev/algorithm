@@ -108,7 +108,7 @@ public class LinkedList<E> {
 				node = node.next;
 			}
 			return node;
-		} else {
+		} else {// search from tail
 			Node<E> node = last;
 			for(int i=size-1; i>index; i--) {
 				node = node.prev;
