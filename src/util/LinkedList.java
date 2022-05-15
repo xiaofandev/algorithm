@@ -96,6 +96,27 @@ public class LinkedList<E> {
 		return removeLast();
 	}
 	
+	// below is search method
+	public Node<E> get(int index) {
+		return node(index);
+	}
+	
+	private Node<E> node(int index) {
+		if(index < (size >> 1)) {// search from head
+			Node<E> node = first;
+			for(int i=0; i<index; i++) {
+				node = node.next;
+			}
+			return node;
+		} else {
+			Node<E> node = last;
+			for(int i=size; i>index; i--) {
+				node = node.prev;
+			}
+			return node;
+		}
+	}
+	
 	private static class Node<E> {
 		Node<E> prev;
 		E element;
