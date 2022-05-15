@@ -2,9 +2,9 @@ package test.usage.sort.performance;
 
 import java.util.Random;
 
-import usage.sort.BubbleSort;
-import usage.sort.InsertSort;
-import usage.sort.SelectionSort;
+import usage.sort.ArrayBubbleSort;
+import usage.sort.ArrayInsertSort;
+import usage.sort.ArraySelectionSort;
 
 /**
  * 
@@ -28,7 +28,7 @@ public class PerformanceTest {
 	public static void testBubbleSort(Integer[] data) {
 		System.out.print("testBubbleSort:");
 		long start = System.currentTimeMillis();
-		BubbleSort.sort(data);
+		ArrayBubbleSort.sort(data);
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");
 	}
@@ -37,7 +37,7 @@ public class PerformanceTest {
 		System.out.print("testBubbleSort2:");
 		long start = System.currentTimeMillis();
 		for(int i=0; i<data.length; i++) {
-			BubbleSort.sort(data[i]);
+			ArrayBubbleSort.sort(data[i]);
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");
@@ -46,7 +46,7 @@ public class PerformanceTest {
 	public static void testInsertSort(Integer[] data ) {
 		System.out.print("testInsertSort");
 		long start = System.currentTimeMillis();
-		InsertSort.sort(data);
+		ArrayInsertSort.sort(data);
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");
 	}
@@ -55,7 +55,7 @@ public class PerformanceTest {
 		System.out.print("testInsertSort2:");
 		long start = System.currentTimeMillis();
 		for(int i=0; i<data.length; i++) {
-			InsertSort.sort(data[i]);
+			ArrayInsertSort.sort(data[i]);
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");
@@ -64,7 +64,7 @@ public class PerformanceTest {
 	public static void testSelectionSort(Integer[] data) {
 		System.out.print("testSelectionSort:");
 		long start = System.currentTimeMillis();
-		SelectionSort.sort(data);
+		ArraySelectionSort.sort(data);
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");
 	}
@@ -73,7 +73,7 @@ public class PerformanceTest {
 		System.out.print("testSelectionSort2:");
 		long start = System.currentTimeMillis();
 		for(int i=0; i<data.length; i++) {
-			SelectionSort.sort(data[i]);
+			ArraySelectionSort.sort(data[i]);
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("Time used:" + (end-start)+"ms");

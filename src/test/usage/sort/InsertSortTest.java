@@ -1,7 +1,7 @@
 package test.usage.sort;
 
 import test.Assert;
-import usage.sort.InsertSort;
+import usage.sort.ArrayInsertSort;
 
 public class InsertSortTest {
 
@@ -11,10 +11,10 @@ public class InsertSortTest {
 	
 	public static void testSort() {
 		Integer[] data1 = new Integer[] {3, 1, 5, 4, 2};
-		Assert.equal(InsertSort.sort(data1), new Integer[] {1,2,3,4,5});
+		Assert.equal(ArrayInsertSort.sort(data1), new Integer[] {1,2,3,4,5});
 		
 		Integer[] data2 = new Integer[] {23, 15, 2, 7, 21};
-		Assert.equal(InsertSort.sort(data2), new Integer[] {2,7,15,21,23});
+		Assert.equal(ArrayInsertSort.sort(data2), new Integer[] {2,7,15,21,23});
 		
 	}
 
