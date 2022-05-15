@@ -31,6 +31,7 @@ public class LinkedList<E> {
 	}
 	
 	private E unlinkFirst() {
+		// assert first node is not null
 		final Node<E> f = first;
 		final E element = f.element;
 		final Node<E> next = f.next;
@@ -47,6 +48,7 @@ public class LinkedList<E> {
 	}
 	
 	private E unlinkLast() {
+		// assert last node is not null
 		final Node<E> l = last;
 		final E element = last.element;
 		final Node<E> prev = l.prev;
@@ -72,14 +74,14 @@ public class LinkedList<E> {
 	
 	public E removeFirst() {
 		if(first == null) {
-			throw new NoSuchElementException();
+			return null;
 		}
 		return unlinkFirst();
 	}
 	
 	public E removeLast() {
 		if(last == null) {
-			throw new NoSuchElementException();
+			return null;
 		}
 		return unlinkLast();
 	}
