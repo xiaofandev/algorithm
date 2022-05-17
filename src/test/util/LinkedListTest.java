@@ -8,6 +8,7 @@ public class LinkedListTest {
 	public static void main(String[] args) {
 		testAddLast();
 		testAddFirst();
+		testAddAfter();
 		testRemoveFirst();
 		testRemoveLast();
 		testGetSize();
@@ -33,6 +34,23 @@ public class LinkedListTest {
 		Assert.equal(list.get(1), 2);
 		list.addLast(3);
 		Assert.equal(list.get(2), 3);
+	}
+	
+	public static void testAddAfter() {
+		LinkedList<Integer> list = new LinkedList<>();
+		list.addLast(1);
+		list.addLast(2);
+		list.addLast(3);
+		// add after first
+		list.addAfter(0, 4);
+		Assert.equal(list.get(0), 1);
+		// add after last
+		list.addAfter(3, 5);
+		Assert.equal(list.get(4), 5);
+		// add after element which index >0 and <size
+		list.addAfter(2, 6);
+		Assert.equal(list.get(3), 6);
+		Assert.equal(list.getSize(), 6);
 	}
 	
 	public static void testRemoveFirst() {
