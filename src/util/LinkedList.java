@@ -30,6 +30,18 @@ public class LinkedList<E> {
 		size++;
 	}
 	
+	private void linkAfter(Node<E> node, E e) {
+		final Node<E> nextNode = node.next;
+		final Node<E> newNode = new Node<E>(node, e, null);
+		newNode.next = nextNode;
+		if(nextNode == null) {
+			last = newNode;
+		} else {
+			nextNode.prev = newNode;
+		}
+		size++;
+	}
+	
 	private E unlinkFirst() {
 		// assert first node is not null
 		final Node<E> f = first;
@@ -72,6 +84,12 @@ public class LinkedList<E> {
 		linkLast(e);
 	}
 	
+	public void addAfter(int index, E e) {
+		checkPositonIndex(index);
+
+		linkAfter(node(index), e);
+	}
+	
 	public E removeFirst() {
 		if(first == null) {
 			return null;
@@ -96,6 +114,16 @@ public class LinkedList<E> {
 	
 	public E pop() {
 		return removeLast();
+	}
+	
+	private String outOfBoundMsg(int index) {
+		return "Index:"+index+",Size:"+size;
+	}
+	
+	private void checkPositonIndex(int index) {
+		if(!(index >= 0 && index < size)) {
+			throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+		}
 	}
 	
 	// below is search method
