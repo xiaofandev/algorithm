@@ -1,6 +1,6 @@
 package util;
 
-public class LinkedList<E> {
+public class LinkedList<E> implements Iterable<E> {
 
 	private Node<E> first;
 	private Node<E> last;
@@ -76,6 +76,30 @@ public class LinkedList<E> {
 		return element;
 	}
 	
+	private E unlink(Node<E> node) {
+		// assert node != null
+		final E element = node.element;
+		final Node<E> prev = node.prev;
+		final Node<E> next = node.next;
+		
+		if(prev == null) {
+			first = next;
+		} else {
+			prev.next = next;
+			node.prev = null;
+		}
+		
+		if(next == null) {
+			last = prev;
+		} else {
+			next.prev = prev;
+			node.next = null;
+		}
+		node.element = null;
+		size--;
+		return element;
+	}
+	
 	public void addFirst(E e) {
 		linkFirst(e);
 	}
@@ -102,6 +126,11 @@ public class LinkedList<E> {
 			return null;
 		}
 		return unlinkLast();
+	}
+	
+	public E remove(int index) {
+		Node<E> node = node(index);
+		return unlink(node);
 	}
 	
 	public int getSize() {
@@ -156,6 +185,33 @@ public class LinkedList<E> {
 			this.element = element;
 			this.next = next;
 		}
+	}
+
+	@Override
+	public Iterator<E> iterate() {
+		return new LinkedItr();
+	}
+	
+	private class LinkedItr implements Iterator<E> {
+
+		int cursor = 0;
+		
+		@Override
+		public E next() {
+			E el = get(cursor);
+			cursor += 1;
+			return el;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if (cursor == getSize()-1) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		
 	}
 	
 }
