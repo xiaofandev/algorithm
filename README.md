@@ -1,5 +1,5 @@
 ## Why this project called 'algorithm'?
-Welcome to visit this project.This project is aimed to improve my basic programming skill which through the requirement of algorithm.
+Welcome to visit this project.This project is aimed to improve my basic programming skill which by implement the requirement of algorithm.
 
 In my opinion,alogrithm may not that difficult as you imagine,it is just about problem, and it is interesting because it's about your life.If you like to solve the problems in your life.you will find 'algoritm'.
 
