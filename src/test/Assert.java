@@ -6,7 +6,7 @@ public class Assert {
 	private static final String FAILURE = "test failure!";
 	
 	public static void equal(boolean source, boolean expect) {
-		if(source == expect) {
+		if (source == expect) {
 			success();
 		} else {
 			failure();
@@ -14,7 +14,7 @@ public class Assert {
 	}
 	
 	public static void equal(Object source, Object expect) {
-		if(source == expect) {
+		if (source == expect) {
 			success();
 		} else {
 			if(source == null || expect == null) {
@@ -31,7 +31,7 @@ public class Assert {
 	}
 	
 	public static void equal(Object[] source, Object[] expect) {
-		if(source == null || expect == null) {
+		if (source == null || expect == null) {
 			failure();
 		} else {
 			if(source.length != expect.length) {
@@ -44,14 +44,14 @@ public class Assert {
     			//                equal=true->success
     			//                equal=false->failure
 	    		boolean success = true;
-	    		for(int i=0; i<source.length-1; i++) {
-	    			if(source[i] == null) {
-	    				if(expect[i] != null) {
+	    		for (int i=0; i<source.length-1; i++) {
+	    			if (source[i] == null) {
+	    				if (expect[i] != null) {
 	    					success = false;
 	    					break;
 	    				}
 	    			} else {
-	    				if(expect[i] == null) {
+	    				if (expect[i] == null) {
 	    					success = false;
 	    					break;
 	    				} else {
@@ -62,7 +62,7 @@ public class Assert {
 	    				}
 	    			}
 	            }
-	    		if(success) {
+	    		if (success) {
 	    			success();
 	    		} else {
 	    			failure();
