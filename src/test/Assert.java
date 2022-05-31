@@ -17,10 +17,10 @@ public class Assert {
 		if (source == expect) {
 			success();
 		} else {
-			if(source == null || expect == null) {
+			if (source == null || expect == null) {
 				failure();
 			} else {
-				if(source.equals(expect)) {
+				if (source.equals(expect)) {
 					success();
 				} else {
 					failure();
@@ -34,7 +34,7 @@ public class Assert {
 		if (source == null || expect == null) {
 			failure();
 		} else {
-			if(source.length != expect.length) {
+			if (source.length != expect.length) {
 	    		failure();
 	    	} else {
 	    		// null,null->success
